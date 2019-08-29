@@ -1,0 +1,73 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const fantasyApp = {};
+let playerList;
+let rosterPlayer;
+let firstName;
+let lastName;
+let points;
+let rebounds;
+let assists;
+let steals;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+fantasyApp.getPlayer = function() {
+    $.ajax({
+        url: 'http://proxy.hackeryou.com',
+        dataType: 'json',
+        method: 'GET',
+        data: {
+            reqUrl: 'https://www.fantasybasketballnerd.com/service/players',
+            xmlToJSON: true,
+            useCache: false
+        }
+    }).then((res) => {
+        playerList = res;
+        console.log(playerList);
+    }).then(()=> {
+        $('form').on('submit', function (event) {
+            //default form submission - we don't have the form to refresh;
+            event.preventDefault();
+            rosterPlayer = $('input[class="searchPlayer"]').val();
+            // clear the form after every enter
+            if (rosterPlayer !== '' && (rosterPlayer === playerList.FantasyBasketballNerd.Player[0].name)) {
+                $('input').val('');
+                $('ul').append(`<li></span>${rosterPlayer}</li>`);
+            }
+        });
+    }) 
+}
+
+// fantasyApp.formSubmit = function() {
+//     $('form').on('submit', function (event) {
+//         //default form submission - we don't have the form to refresh;
+//         event.preventDefault();
+//         rosterPlayer = $('input[class="searchPlayer"]').val();
+//         // clear the form after every enter
+//         if (rosterPlayer !== '') {
+//             $('input').val('');
+//             $('ul').append(`<li></span>${rosterPlayer}</li>`);
+//         }
+//     });
+// }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+fantasyApp.init = () => {
+    fantasyApp.getPlayer();
+    // fantasyApp.formSubmit();
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$(document).ready(function(){
+    fantasyApp.init();
+});
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// console.log(res.FantasyBasketballNerd.Player[0].height);
