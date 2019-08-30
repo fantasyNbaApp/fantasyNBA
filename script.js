@@ -24,6 +24,7 @@ let positionPF = [];
 //Array of Power Forwards from your fantasy roster
 let positionC = [];
 //Array of Centers from your fantasy roster
+let positionList = ["PG","SG","SF","PF","C"];
 let firstName;
 let lastName;
 let points;
@@ -82,6 +83,8 @@ fantasyApp.getPlayerInfo = function () {
     })
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 fantasyApp.calculateValue = function (points, rebounds, assists, blocks, steals, turnovers ) {
 //Determine value of player in order to sort players
 // Pts = 1
@@ -105,71 +108,96 @@ fantasyApp.getPlayer = function() {
     .then(() => {
 
         $('form').on('submit', function (e) {
-            e.preventDefault();
-            rosterPlayer = $('input[class="searchPlayer"]').val();
 
-            for (let i=0;i<playerList.length;i++) {
-                if (rosterPlayer === playerList[i].name) {
+            if (rosterCount > 11) {
+                alert("SEE YA L8R! YOU HAVE TOO MANY PLAYS");
+                e.preventDefault();
+            }
 
-                    $('ul').append(`<li></span>${rosterPlayer}</li>`);
-                    $('input[class="searchPlayer"]').val('');
-                    fantasyPlayerList[rosterCount] = playerList[i];
-                    
-                    for (let j=0;j<playerStats.length;j++){
+            else {
+                e.preventDefault();
+                rosterPlayer = $('input[class="searchPlayer"]').val();
 
-                        if (rosterPlayer == playerStats[j].name) {
-                            //Break Player Name into Array with first and last name
-                            brokenName = rosterPlayer.split(" ");
-                            //Player Position
-                            fantasyPlayerList[rosterCount].position =  playerStats[j].position;
-                            //Number of Games Player has Played
-                            fantasyPlayerList[rosterCount].games = Number(playerStats[j].Games);
-                            //Points per Game
-                            fantasyPlayerList[rosterCount].pointsPerGame = Number(((playerStats[j].PTS) / playerStats[j].Games).toFixed(1));
-                            //Field Goal Percentage
-                            fantasyPlayerList[rosterCount].fieldGoal = Number(playerStats[j].FG);
-                            //Free Throw Percentage
-                            fantasyPlayerList[rosterCount].freeThrow = Number(playerStats[j].FT);
-                            //Rebounds per Game
-                            fantasyPlayerList[rosterCount].rebounds = Number(((playerStats[j].REB) / playerStats[j].Games).toFixed(1));
-                            //Assists per Game
-                            fantasyPlayerList[rosterCount].assists = Number((playerStats[j].AST / playerStats[j].Games).toFixed(1));
-                            //Blocks per Game
-                            fantasyPlayerList[rosterCount].blocks = Number(((playerStats[j].BLK) / playerStats[j].Games).toFixed(1));
-                            //Steals per Game
-                            fantasyPlayerList[rosterCount].steals = Number(((playerStats[j].STL) / playerStats[j].Games).toFixed(1));
-                            //Threes per Game
-                            fantasyPlayerList[rosterCount].threesPerGame = Number(((playerStats[j].THREES) / playerStats[j].Games).toFixed(1));
-                            //Minutes per Game
-                            fantasyPlayerList[rosterCount].minutes = Number((playerStats[j].Minutes / playerStats[j].Games).toFixed(1));
-                            //Turn Over per Game
-                            fantasyPlayerList[rosterCount].turnOvers = Number(((playerStats[j].TO) / playerStats[j].Games).toFixed(1));
-                            //Grabs all Player stats and inputs it into array
+                for (let i=0;i<playerList.length;i++) {
+                    if (rosterPlayer === playerList[i].name) {
 
-                            //Face Image of Player
-                            fantasyPlayerList[rosterCount].imgURL = `https://nba-players.herokuapp.com/players/${brokenName[1]}/${brokenName[0]}`;
-                            //Total Value of Player under fantasyPoints
-                            // Pts = 1
-                            // Reb = 1.2
-                            // Asst = 1.5
-                            // Blk = 3
-                            // Stl = 3
-                            // Turnover = -1
-                            fantasyPlayerList[rosterCount].fantasyPoints = fantasyApp.calculateValue(fantasyPlayerList[rosterCount].pointsPerGame, fantasyPlayerList[rosterCount].rebounds, fantasyPlayerList[rosterCount].assists, fantasyPlayerList[rosterCount].blocks, fantasyPlayerList[rosterCount].steals, fantasyPlayerList[rosterCount].turnOvers);
-                            
+                        $('ul').append(`<li></span>${rosterPlayer}</li>`);
+                        $('input[class="searchPlayer"]').val('');
+                        fantasyPlayerList[rosterCount] = playerList[i];
+                        
+                        for (let j=0;j<playerStats.length;j++){
+
+                            if (rosterPlayer == playerStats[j].name) {
+                                //Break Player Name into Array with first and last name
+                                brokenName = rosterPlayer.split(" ");
+                                //Player Position
+                                fantasyPlayerList[rosterCount].position =  playerStats[j].position;
+                                //Number of Games Player has Played
+                                fantasyPlayerList[rosterCount].games = Number(playerStats[j].Games);
+                                //Points per Game
+                                fantasyPlayerList[rosterCount].pointsPerGame = Number(((playerStats[j].PTS) / playerStats[j].Games).toFixed(1));
+                                //Field Goal Percentage
+                                fantasyPlayerList[rosterCount].fieldGoal = Number(playerStats[j].FG);
+                                //Free Throw Percentage
+                                fantasyPlayerList[rosterCount].freeThrow = Number(playerStats[j].FT);
+                                //Rebounds per Game
+                                fantasyPlayerList[rosterCount].rebounds = Number(((playerStats[j].REB) / playerStats[j].Games).toFixed(1));
+                                //Assists per Game
+                                fantasyPlayerList[rosterCount].assists = Number((playerStats[j].AST / playerStats[j].Games).toFixed(1));
+                                //Blocks per Game
+                                fantasyPlayerList[rosterCount].blocks = Number(((playerStats[j].BLK) / playerStats[j].Games).toFixed(1));
+                                //Steals per Game
+                                fantasyPlayerList[rosterCount].steals = Number(((playerStats[j].STL) / playerStats[j].Games).toFixed(1));
+                                //Threes per Game
+                                fantasyPlayerList[rosterCount].threesPerGame = Number(((playerStats[j].THREES) / playerStats[j].Games).toFixed(1));
+                                //Minutes per Game
+                                fantasyPlayerList[rosterCount].minutes = Number((playerStats[j].Minutes / playerStats[j].Games).toFixed(1));
+                                //Turn Over per Game
+                                fantasyPlayerList[rosterCount].turnOvers = Number(((playerStats[j].TO) / playerStats[j].Games).toFixed(1));
+                                //Grabs all Player stats and inputs it into array
+
+                                //Face Image of Player
+                                fantasyPlayerList[rosterCount].imgURL = `https://nba-players.herokuapp.com/players/${brokenName[1]}/${brokenName[0]}`;
+                                //Total Value of Player under fantasyPoints
+                                // Pts = 1
+                                // Reb = 1.2
+                                // Asst = 1.5
+                                // Blk = 3
+                                // Stl = 3
+                                // Turnover = -1
+                                fantasyPlayerList[rosterCount].fantasyPoints = fantasyApp.calculateValue(fantasyPlayerList[rosterCount].pointsPerGame, fantasyPlayerList[rosterCount].rebounds, fantasyPlayerList[rosterCount].assists, fantasyPlayerList[rosterCount].blocks, fantasyPlayerList[rosterCount].steals, fantasyPlayerList[rosterCount].turnOvers);
+                                
+                            }
                         }
+                        //Keep Track of Roster Count --> Output Unable to assemble team with less than 6 players and maximum count of 15
+                        rosterCount++;
                     }
-                    //Keep Track of Roster Count --> Output Unable to assemble team with less than 6 players and maximum count of 15
-                    rosterCount++;
-                }
-                else {
-                    //Clear text
-                    $('input[class="searchPlayer"]').val('');
+                    else {
+                        //Clear text
+                        $('input[class="searchPlayer"]').val('');
+                    }
                 }
             }
-            console.log(fantasyPlayerList);
-        
         })
+
+        $('button').on('click',function() {
+            console.log(fantasyPlayerList);
+            console.log(positionList)
+            for (let i=0;i<fantasyPlayerList.length;i++){
+                positionList.forEach(positions => {
+                    if (positions === fantasyPlayerList.position){
+                        
+                    }
+                });
+            }
+        })
+
+
+
+
+
+
+
     })
     }
 
