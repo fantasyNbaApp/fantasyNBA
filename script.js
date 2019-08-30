@@ -43,7 +43,8 @@ fantasyApp.getPlayer = function() {
             playerList[i] = res.FantasyBasketballNerd.Player[i];
         }
 
-    }).then(() => {
+    }).then(()=>{
+
         $('form').on('submit', function (e) {
 
             e.preventDefault();
@@ -60,24 +61,10 @@ fantasyApp.getPlayer = function() {
                     $('input[class="searchPlayer"]').val('');
                 }
             }
-
+            console.log(fantasyPlayerList);
         })
-    }).then(() => {
-        $('button').on('click',function() {
-            $.ajax({
-                url: 'http://proxy.hackeryou.com',
-                dataType: 'json',
-                method: 'GET',
-                data: {
-                    reqUrl: 'https://www.fantasybasketballnerd.com/service/draft-projections',
-                    xmlToJSON: true,
-                    useCache: false
-                }
-        })
-    }).then((data) => {
-        console.log(data);
     })
-    })}
+    }
 
 
 
