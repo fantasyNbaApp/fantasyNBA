@@ -43,7 +43,7 @@ fantasyApp.getPlayer = function() {
             playerList[i] = res.FantasyBasketballNerd.Player[i];
         }
 
-    }).then(()=>{
+    }).then(() => {
 
         $('form').on('submit', function (e) {
 
