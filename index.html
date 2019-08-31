@@ -9,24 +9,145 @@
     <link rel="stylesheet" href="styles/styles.css">
     <title>Fantasy Basketball</title>
     <style>
-        input {
-            width: 50%;
+        input,
+        button {
+            width: 60%;
         }
         body {
             padding: 5%;
+            display: flex;
+            flex-direction: row;
         }
     </style>
 </head>
 
 <body>
-    <form action="">
-        <input class="searchPlayer" placeholder="Search an NBA Player by First Name followed by their Last Name">
-    </form>
-    <button class="submit">Form Your NBA Fantasy Team!</button>
+    <section class="playerRoster">
 
-    <ul>
+        <h1>Fantasy NBA Cheat Code</h1>
 
-    </ul>
+        <form action="">
+            <input class="searchPlayer" placeholder="Search an NBA Player by First Name followed by their Last Name">
+        </form>
+
+        <button class="submit">Form Your NBA Fantasy Team!</button>
+    
+        <h2>Your Player Roster</h2>
+
+        <ul></ul>
+
+    </section>
+
+    <section class="playerDisplay">
+
+        <h3 class="playerName"></h3>
+
+        <div class="playerIMG">
+        </div>
+
+        <div class="playerGenInfo">
+
+            <div class="playerTeamContainer">
+                <h3>player team </h3>
+                <p class="playerTeam"></p>
+            </div>
+
+            <div class="playerPositionContainer">
+                <h3>player position </h3>
+                <p class="playerPosition"></p>
+            </div>
+
+            <div class="playerHeightContainer">
+                <h3>player height </h3>
+                <p class="playerHeight"></p>
+            </div>
+
+        </div>
+
+
+        <div class="playerStats">
+
+            <div class="playerPointsTotalContainer">
+                <div class="playerPointsContainer">
+                    <h3>PPG</h3>
+                    <p class="playerPoints"></p>    
+                </div>
+                <h3>League PPG Avg: 10.0</h3>
+            </div>
+
+            <div class="playerReboundTotalContainer">
+                <div class="playerReboundsContainer">
+                    <h3>RPG</h3>
+                    <p class="playerRebounds"></p>
+                </div>
+                <h3>League RPG Avg: 4.2</h3>
+            </div>
+
+            <div class="playerAssistsTotalContainer">
+                <div class="playerAssistsContainer">
+                    <h3>ASG</h3>
+                    <p class="playerAssists"></p>
+                </div>
+                <h3>League ASG Avg: 2.1</h3>
+            </div>
+
+            <div class="playerFreeThrowTotalContainer">
+                <div class="playerFreeThrowContainer">
+                    <h3>FT%</h3>
+                    <p class="playerFreeThrow"></p>
+                </div>
+                <h3>League FT% Avg: 78.4%</h3>
+            </div>
+
+            <div class="playerThreePointsTotalContainer">
+                <div class="threePointContainer">
+                    <h3>3PG</h3>
+                    <p class="playerThreePoints"></p>
+                </div>
+                <h3>League 3PG Avg: 1.3</h3>
+            </div>
+
+            <div class="playerFantasyPointsTotalContainer">
+                <h3>Anticipated Fantasy Points Next Year</h3>
+                <p class="playerFantasyPoints"></p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="playerRoster">
+        <h2>Players For Each Position From Ascending Order (Best to Worst)</h2>
+        <div class="pointGuard">
+            <h2>Point Guard Class</h2>
+        </div>
+        <div class="shootingGuard">
+            <h2>Shooting Guard Class</h2>
+        </div>
+        <div class="smallForward">
+            <h2>Small Forward Class</h2>
+        </div>
+        <div class="powerForward">
+            <h2>Power Forward Class</h2>
+        </div>
+        <div class="center">
+            <h2>Center Class</h2>
+        </div>
+    
+    </section>
+
+    <section class="startingLineUp">
+
+        <h2>Starting Line Up, Bench & Reserves</h2>
+
+        <div class="starting">
+            <h2>Starting Line Up</h2>
+        </div>
+
+        <div class="bench">
+            <h2>Bench</h2>
+        </div>
+    </section>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="script.js"></script>

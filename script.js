@@ -38,7 +38,6 @@ let steals;
 // Stl = 3
 // Turnover = -1
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 fantasyApp.getPlayerStats = function () {
@@ -61,7 +60,6 @@ fantasyApp.getPlayerStats = function () {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 fantasyApp.getPlayerInfo = function () {
 //Grabbing Player Info API
@@ -107,7 +105,54 @@ function compareValue(a, b) {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//BoardMessage For Each of the Stats/Info of the NBA Players
 
+function boardMessageName(name) {
+    return $(".playerName").text(name);
+}
+
+function boardMessageIMG(url) {
+    const imgURL =  `<img src="${url}">`;
+    $(`.playerIMG`).html(imgURL);
+}
+
+function boardMessageTeam(team) {
+    return $(".playerTeam").text(team);
+}
+
+function boardMessagePosition(pos) {
+    return $(".playerPosition").text(pos);
+}
+
+function boardMessageHeight (height) {
+    return $(".playerHeight").text(height);
+}
+
+function boardMessagePoints(points) {
+    return $(".playerPoints").text(points);
+}
+
+function boardMessageRebounds(rebounds) {
+    return $(".playerRebounds").text(rebounds);   
+}
+
+function boardMessageAssit(assists) {
+    return $(".playerAssists").text(assists);
+}
+
+function boardMessageFreeThrows(freeThrows) {
+    return $(".playerFreeThrow").text(freeThrows);
+}
+
+function boardMessageThreePoints(threePoints) {
+    return $(".playerThreePoints").text(threePoints);
+}
+
+function boardMessageFantasyPoints(fantasyPoints) {
+    return $(".playerFantasyPoints").text(fantasyPoints);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 fantasyApp.getPlayer = function() {
     $.when(fantasyApp.getPlayerStats, fantasyApp.getPlayerInfo )
@@ -129,15 +174,19 @@ fantasyApp.getPlayer = function() {
 
                 for (let i=0;i<playerList.length;i++) {
                     if (rosterPlayer === playerList[i].name) {
-
-                        $('ul').append(`<li></span>${rosterPlayer}</li>`);
-                        $('input[class="searchPlayer"]').val('');
-                        fantasyPlayerList[rosterCount] = playerList[i];
                         
+                        //Add Name to RosterList in HTML
+                        $('ul').append(`<li></span>${rosterPlayer}</li>`);
+                        //Search Search after Enter
+                        $('input[class="searchPlayer"]').val('');
+                        //Make an array of entered players with properties into fantasyPlayerList
+                        fantasyPlayerList[rosterCount] = playerList[i];
+
+                        //input all NBA player stats into fantasyPlayerList for entered names
                         for (let j=0;j<playerStats.length;j++){
 
                             if (rosterPlayer == playerStats[j].name) {
-                                //Break Player Name into Array with first and last name
+                                //Break Player Name into Array with first and last name for img url
                                 brokenName = rosterPlayer.split(" ");
                                 //Player Position
                                 fantasyPlayerList[rosterCount].position =  playerStats[j].position;
@@ -175,7 +224,19 @@ fantasyApp.getPlayer = function() {
                                 // Stl = 3
                                 // Turnover = -1
                                 fantasyPlayerList[rosterCount].fantasyPoints = fantasyApp.calculateValue(fantasyPlayerList[rosterCount].pointsPerGame, fantasyPlayerList[rosterCount].rebounds, fantasyPlayerList[rosterCount].assists, fantasyPlayerList[rosterCount].blocks, fantasyPlayerList[rosterCount].steals, fantasyPlayerList[rosterCount].turnOvers);
-                                
+
+                                //Output to Board All Player Info While It is being Typed
+                                boardMessageName(fantasyPlayerList[rosterCount].name);
+                                boardMessageIMG(fantasyPlayerList[rosterCount].imgURL);
+                                boardMessageTeam(fantasyPlayerList[rosterCount].team); 
+                                boardMessagePosition(fantasyPlayerList[rosterCount].position); 
+                                boardMessageHeight(fantasyPlayerList[rosterCount].height); 
+                                boardMessagePoints(fantasyPlayerList[rosterCount].pointsPerGame); 
+                                boardMessageAssit(fantasyPlayerList[rosterCount].assists);
+                                boardMessageRebounds(fantasyPlayerList[rosterCount].rebounds); 
+                                boardMessageFreeThrows(fantasyPlayerList[rosterCount].freeThrow); 
+                                boardMessageThreePoints(fantasyPlayerList[rosterCount].threesPerGame); 
+                                boardMessageFantasyPoints(fantasyPlayerList[rosterCount].fantasyPoints);
                             }
                         }
                         //Keep Track of Roster Count --> Output Unable to assemble team with less than 6 players and maximum count of 15
@@ -222,6 +283,43 @@ fantasyApp.getPlayer = function() {
             console.log(positionSF);
             console.log(positionPF);
             console.log(positionC);
+
+            //Sorting function for each position and outputs to the page when submit is clicked!
+
+            for (let i=0;i<positionPG.length;i++){
+                $('.pointGuard').append(`<li></span>${positionPG[i].name}</li>`);
+            }
+
+            for (let i = 0; i < positionSG.length; i++) {
+                $('.shootingGuard').append(`<li></span>${positionSG[i].name}</li>`);
+            }
+
+            for (let i = 0; i < positionSF.length; i++) {
+                $('.smallForward').append(`<li></span>${positionSF[i].name}</li>`);
+            }
+
+            for (let i = 0; i < positionPF.length; i++) {
+                $('.powerForward').append(`<li></span>${positionPF[i].name}</li>`);
+            }
+
+            for (let i = 0; i < positionC.length; i++) {
+                $('.center').append(`<li></span>${positionC[i].name}</li>`);
+            }
+
+            //Output Starting Line Up
+            $('.starting').append(`<li></span>${positionPG[0].name}</li>`);
+            $('.starting').append(`<li></span>${positionSG[0].name}</li>`);
+            $('.starting').append(`<li></span>${positionSF[0].name}</li>`);
+            $('.starting').append(`<li></span>${positionPF[0].name}</li>`);
+            $('.starting').append(`<li></span>${positionC[0].name}</li>`);
+
+            //Output Bench
+            $('.bench').append(`<li></span>${positionPG[1].name}</li>`);
+            $('.bench').append(`<li></span>${positionSG[1].name}</li>`);
+            $('.bench').append(`<li></span>${positionSF[1].name}</li>`);
+            $('.bench').append(`<li></span>${positionPF[1].name}</li>`);
+            $('.bench').append(`<li></span>${positionC[1].name}</li>`);
+
         })
     })
     }
@@ -243,3 +341,4 @@ $(document).ready(function(){
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
