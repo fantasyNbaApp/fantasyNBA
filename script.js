@@ -23,8 +23,7 @@ let positionSF = [];
 let positionPF = [];
 //Array of Power Forwards from your fantasy roster
 let positionC = [];
-//Array of Centers from your fantasy roster
-let positionList = ["PG","SG","SF","PF","C"];
+//
 let firstName;
 let lastName;
 let points;
@@ -96,7 +95,16 @@ fantasyApp.calculateValue = function (points, rebounds, assists, blocks, steals,
     return (points + rebounds*1.2 + assists*1.5 + blocks*3 + steals*3 - turnovers);
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function compareValue(a, b) {
+    if (a.fantasyPoints < b.fantasyPoints) {
+        return -1;
+    }
+    else if (a.fantasyPoints > b.fantasyPoints) {
+        return 1;
+    }
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -109,8 +117,9 @@ fantasyApp.getPlayer = function() {
 
         $('form').on('submit', function (e) {
 
+            //Error Handling, only allow maximum 12 players to be submitted due to Yahoo Fantasy Fulls
             if (rosterCount > 11) {
-                alert("SEE YA L8R! YOU HAVE TOO MANY PLAYS");
+                alert("SEE YA L8R! YOU HAVE TOO MANY PLAYasS");
                 e.preventDefault();
             }
 
@@ -181,27 +190,41 @@ fantasyApp.getPlayer = function() {
         })
 
         $('button').on('click',function() {
-            console.log(fantasyPlayerList);
-            console.log(positionList)
-            for (let i=0;i<fantasyPlayerList.length;i++){
-                positionList.forEach(positions => {
-                    if (positions === fantasyPlayerList.position){
-                        
-                    }
-                });
+
+            //Sort Players by Position and place into position array
+            for (let i=0;i<fantasyPlayerList.length;i++) {
+                if (fantasyPlayerList[i].position === "PG") {
+                    positionPG.push(fantasyPlayerList[i]);
+                }
+                else if (fantasyPlayerList[i].position === "SG") {
+                    positionSG.push(fantasyPlayerList[i]);
+                }
+                else if (fantasyPlayerList[i].position === "SF") {
+                    positionSF.push(fantasyPlayerList[i]);
+                }
+                else if (fantasyPlayerList[i].position === "PF") {
+                    positionPF.push(fantasyPlayerList[i]);
+                }
+                else if (fantasyPlayerList[i].position === "C"){
+                    positionC.push(fantasyPlayerList[i]);
+                }
             }
+
+            (positionPG.sort(compareValue)).reverse();
+            (positionSG.sort(compareValue)).reverse();
+            (positionSF.sort(compareValue)).reverse();
+            (positionPF.sort(compareValue)).reverse();
+            (positionC.sort(compareValue)).reverse();
+            //Sorting function to output player by position and strengths
+
+            console.log(positionPG);
+            console.log(positionSG);
+            console.log(positionSF);
+            console.log(positionPF);
+            console.log(positionC);
         })
-
-
-
-
-
-
-
     })
     }
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -219,8 +242,4 @@ $(document).ready(function(){
     fantasyApp.init();
 });
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// console.log(res.FantasyBasketballNerd.Player[0].height);
