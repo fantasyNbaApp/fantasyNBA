@@ -200,17 +200,15 @@ fantasyApp.getPlayer = function () {
                                     return false
 
                                 }
-
-
-
                             }
-
-
 
                             //Add Name to RosterList in HTML
                             if (!hasPlayerName) {
                                 $('ul').append(`<li></span>${rosterPlayer}</li>`);
                             }
+
+                            $(".playerInfoPlayerRoster").css("opacity","1");
+                            $(".playerInfoPlayerRoster").css("transition", "0.5s");
 
                             //Search Search after Enter
                             $('input[class="searchPlayer"]').val('');
@@ -295,6 +293,13 @@ fantasyApp.getPlayer = function () {
                     alert('no player entered');
                     return;
                 }
+
+                else if (fantasyPlayerList.length<10){
+                    alert('not enough players entered');
+                    return;
+                }
+
+
                 //Sort Players by Position and place into position array
                 for (let i = 0; i < fantasyPlayerList.length; i++) {
                     if (fantasyPlayerList[i].position === "PG") {
@@ -363,8 +368,19 @@ fantasyApp.getPlayer = function () {
                 $('.bench').append(`<li></span>${positionPF[1].name}</li>`);
                 $('.bench').append(`<li></span>${positionC[1].name}</li>`);
 
+                $('.submit').on('click', function () {
+                    $(".submit").css("opacity", "0");
+                    $(".submit").css("transition", "1s");
+                })
+
             })
         })
+
+
+
+
+
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
