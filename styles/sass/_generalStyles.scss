@@ -1,0 +1,32 @@
+$headingFont: 'Anton', sans-serif, Helvetica;
+$primaryColor: #05558F;
+$secondaryColor: #DDE0E0;
+
+html {
+    //font-size set to 22.5px for accessibility
+    font-size: 125%;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $headingFont;
+    color: $primaryColor;
+}
+
+p {
+    margin-bottom: 3%;
+}
+
+
+
+img {
+    display: block;
+    width: 100%;
+}
+

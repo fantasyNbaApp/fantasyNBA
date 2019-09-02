@@ -1,32 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Acme|Anton&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <!-- font-family: 'Anton', sans-serif; -->
+
     <title>Fantasy Kings</title>
 </head>
 
-<header>
-    <img src="./assets/nbaLogo.png" alt="">
 
-    <div class="titleContainer">
-        <h1>Fantasy Kings</h1>
-        <h2>NBA Fantasy Team Builder</h2>
+<header>
+    <div class="wrapper">
+        <div class="titleContainer">
+            <div class="nbaLogo">
+                <img src="./assets/nba_PNG2.png" alt="">
+            </div>
+
+            <div class="appTitle">
+                <h1>NBA Fantasy Kings</h1>
+            </div>
+        </div>
+
+        <div class="searchPlayers">
+            <form action="">
+                <input class="searchPlayer" placeholder="Search NBA Player">
+            </form>
+        </div>
+
+        <div class="PlayerCardPlayerRoster">
+            <div class="playerNameTitleContainer">
+                <h2>Your Roster</h2>
+                <ul class="rosterList"></ul>
+                <div class="buttonContainer">
+                    <button class="submit">Form Team</button>
+                    <button class="reset">Reset Team</button>
+                </div>
+            </div>
+            
+            
+
+            <div class="playerCard">
+                <div class="playerNamePlayerIMG">
+                    <h3 class="playerName">Player Name</h3>
+                    <div class="playerIMG"><img src="./assets/2820067.png" alt=""></div>
+                </div>
+
+                <div class="playerGenInfo">
+                    <div class="playerTeamContainer">
+                        <h3>player team </h3>
+                        <p class="playerTeam">TOR</p>
+                    </div>
+
+                    <div class="playerPositionContainer">
+                        <h3>player position </h3>
+                        <p class="playerPosition">PG</p>
+                    </div>
+
+                    <div class="playerHeightContainer">
+                        <h3>player height </h3>
+                        <p class="playerHeight">6-3</p>
+                    </div>
+                </div>
+
+                <div class="playerStats">
+
+                    <div class="playerStatsUpper">
+                        <div class="playerPointsTotalContainer">
+                            <div class="playerPointsContainer">
+                                <h3>PPG</h3>
+                                <p class="playerPoints">21</p>
+                            </div>
+                            <!-- <h3>League PPG Avg: 10.0</h3> -->
+                        </div>
+
+                        <div class="playerReboundTotalContainer">
+                            <div class="playerReboundsContainer">
+                                <h3>RPG</h3>
+                                <p class="playerRebounds">4</p>
+                            </div>
+                            <!-- <h3>League RPG Avg: 4.2</h3> -->
+                        </div>
+
+                        <div class="playerAssistsTotalContainer">
+                            <div class="playerAssistsContainer">
+                                <h3>ASG</h3>
+                                <p class="playerAssists">5</p>
+                            </div>
+                            <!-- <h3>League ASG Avg: 2.1</h3> -->
+                        </div>
+                    </div>
+
+                    <div class="playerStatsLower">
+                        <div class="playerFreeThrowTotalContainer">
+                            <div class="playerFreeThrowContainer">
+                                <h3>FT%</h3>
+                                <p class="playerFreeThrow">0.85</p>
+                            </div>
+                            <!-- <h3>League FT% Avg: 78.4%</h3> -->
+                        </div>
+
+                        <div class="playerThreePointsTotalContainer">
+                            <div class="threePointContainer">
+                                <h3>3PG</h3>
+                                <p class="playerThreePoints">6</p>
+                            </div>
+                            <!-- <h3>League 3PG Avg: 1.3</h3> -->
+                        </div>
+
+                        <div class="playerFantasyPointsTotalContainer">
+                            <h3>Projected Daily Fantasy Points</h3>
+                            <p class="playerFantasyPoints">45</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
 </header>
 
+/////////////////////////////////////////////////////
 <body>
-    <main class="playerRoster">
-            <form action="">
-                <input class="searchPlayer" placeholder="Search NBA Player">
-            </form>     
-    </main>
 
-    <section class="playerRosterContainer wrapper">
+    <!-- <section class="playerRosterContainer wrapper">
 
         <div class="playerNameTitleContainer">
             <h2>Your Roster</h2>
@@ -112,7 +212,7 @@
                     </div>
                 </div>
         </div>
-    </section>
+    </section> -->
 
 
     <section class="playerRoster">

@@ -377,10 +377,13 @@ fantasyApp.getPlayer = function () {
         })
 
 
+}
 
-
-
-
+fantasyApp.resetButton = () => {
+    $('.reset').on('click', function() {
+        $('.searchPlayer').val("");
+        location.reload();
+    })
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -390,6 +393,7 @@ fantasyApp.init = () => {
     fantasyApp.getPlayerInfo();
     fantasyApp.getPlayer();
     fantasyApp.calculateValue();
+    fantasyApp.resetButton();
 
 }
 
