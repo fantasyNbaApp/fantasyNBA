@@ -263,7 +263,10 @@ img {
 header {
   background-color: #DDE0E0;
   padding: 1% 0;
-  height: 100vh;
+}
+
+body {
+  background-color: #DDE0E0;
 }
 
 .nbaLogo {
@@ -355,6 +358,13 @@ form {
   border: 1px solid black;
   border-radius: 5px;
   margin: 2% 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  vertical-align: middle;
 }
 
 .buttonContainer {
@@ -404,6 +414,7 @@ form {
   border: 5px solid #05558F;
   border-radius: 20px;
   width: 70%;
+  opacity: 0;
 }
 
 .playerCard h3 {
@@ -432,7 +443,14 @@ form {
   margin-top: 5%;
 }
 
-.playerGenInfo {
+.playerRoster h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2em;
+}
+
+.playerGenInfo,
+.positionClasses {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -479,4 +497,112 @@ form {
 .playerThreePointsTotalContainer,
 .playerFantasyPointsTotalContainer {
   width: calc(100%/3);
+}
+
+.pointGuard,
+.shootingGuard,
+.smallForward,
+.powerForward,
+.center {
+  width: 18%;
+  text-align: center;
+  border: 5px solid #05558F;
+  border-radius: 20px;
+  padding-bottom: 50px;
+  margin: 1%;
+  padding: 0.5%;
+}
+
+.pointGuard h2,
+.shootingGuard h2,
+.smallForward h2,
+.powerForward h2,
+.center h2 {
+  text-align: center;
+  font-size: 22.5px;
+  text-transform: uppercase;
+}
+
+.pointGuard li,
+.shootingGuard li,
+.smallForward li,
+.powerForward li,
+.center li {
+  font-size: 0.9rem;
+  width: 80%;
+  padding: 2%;
+  list-style: none;
+  text-align: center;
+  margin: 4% auto;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.startingLineUp {
+  margin-bottom: 2%;
+}
+
+.startingLineUpTitle {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2em;
+}
+
+.lineUpContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.starting,
+.bench {
+  width: 48%;
+  margin: 2%;
+  text-align: center;
+  border: 5px solid #05558F;
+  border-radius: 20px;
+  padding-bottom: 50px;
+  margin: 1%;
+  padding: 0.5%;
+}
+
+.starting h2,
+.bench h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.starting li,
+.bench li {
+  font-size: 0.9rem;
+  width: 40%;
+  padding: 2%;
+  list-style: none;
+  text-align: center;
+  margin: 4% auto;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.instructions h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2em;
+}
+
+.instructions p {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.weeklyCalc {
+  text-align: center;
+}
+
+.weeklyCalc h3 {
+  padding-top: 2%;
 }

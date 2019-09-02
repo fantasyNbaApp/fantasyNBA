@@ -23,7 +23,9 @@ let positionSF = [];
 let positionPF = [];
 //Array of Power Forwards from your fantasy roster
 let positionC = [];
-//
+//Array of Centers from your fantasy roster
+let totalFantasyWeeklyPoints;
+//Weekily Fantasy Points Calculator
 let firstName;
 let lastName;
 let points;
@@ -207,6 +209,9 @@ fantasyApp.getPlayer = function () {
                                 $('ul').append(`<li></span>${rosterPlayer}</li>`);
                             }
 
+                            $('.playerCard').css("opacity", "1");
+                            $('.playerCard').css("transition", "3s");
+
                             $(".playerInfoPlayerRoster").css("opacity","1");
                             $(".playerInfoPlayerRoster").css("transition", "0.5s");
 
@@ -256,7 +261,9 @@ fantasyApp.getPlayer = function () {
                                     // Blk = 3
                                     // Stl = 3
                                     // Turnover = -1
-                                    fantasyPlayerList[rosterCount].fantasyPoints = fantasyApp.calculateValue(fantasyPlayerList[rosterCount].pointsPerGame, fantasyPlayerList[rosterCount].rebounds, fantasyPlayerList[rosterCount].assists, fantasyPlayerList[rosterCount].blocks, fantasyPlayerList[rosterCount].steals, fantasyPlayerList[rosterCount].turnOvers);
+                                    fantasyPlayerList[rosterCount].fantasyPoints = Number(Number(fantasyApp.calculateValue(fantasyPlayerList[rosterCount].pointsPerGame, fantasyPlayerList[rosterCount].rebounds, fantasyPlayerList[rosterCount].assists, fantasyPlayerList[rosterCount].blocks, fantasyPlayerList[rosterCount].steals, fantasyPlayerList[rosterCount].turnOvers)).toFixed(1));
+
+                                   
 
                                     //Output to Board All Player Info While It is being Typed
                                     boardMessageName(fantasyPlayerList[rosterCount].name);
@@ -294,10 +301,17 @@ fantasyApp.getPlayer = function () {
                     return;
                 }
 
-                else if (fantasyPlayerList.length<10){
+                else if (fantasyPlayerList.length<12){
                     alert('not enough players entered');
                     return;
                 }
+
+
+
+                $('.submit').css("display", "none");
+                $('.reset').css("width", "100%");
+                $('.reset').css("border-radius" , "0 0 15px 15px");
+
 
 
                 //Sort Players by Position and place into position array
@@ -353,25 +367,31 @@ fantasyApp.getPlayer = function () {
                 for (let i = 0; i < positionC.length; i++) {
                     $('.center').append(`<li></span>${positionC[i].name}</li>`);
                 }
+                
+                totalFantasyWeeklyPoints = ((positionPG[0].fantasyPoints + positionSG[0].fantasyPoints + positionSF[0].fantasyPoints + positionPF[0].fantasyPoints + positionC[0].fantasyPoints + positionPG[1].fantasyPoints + positionSG[1].fantasyPoints + positionSF[1].fantasyPoints + positionPF[1].fantasyPoints + positionC[1].fantasyPoints)*3.5).toFixed(1);
 
+                $('.weeklyCalc h3').text(`Your weekly projected fantasy points by this roster is: ${totalFantasyWeeklyPoints}`);
+                
                 //Output Starting Line Up
                 $('.starting').append(`<li></span>${positionPG[0].name}</li>`);
                 $('.starting').append(`<li></span>${positionSG[0].name}</li>`);
                 $('.starting').append(`<li></span>${positionSF[0].name}</li>`);
                 $('.starting').append(`<li></span>${positionPF[0].name}</li>`);
                 $('.starting').append(`<li></span>${positionC[0].name}</li>`);
-
+                
                 //Output Bench
                 $('.bench').append(`<li></span>${positionPG[1].name}</li>`);
                 $('.bench').append(`<li></span>${positionSG[1].name}</li>`);
                 $('.bench').append(`<li></span>${positionSF[1].name}</li>`);
                 $('.bench').append(`<li></span>${positionPF[1].name}</li>`);
                 $('.bench').append(`<li></span>${positionC[1].name}</li>`);
+                
 
-                $('.submit').on('click', function () {
-                    $(".submit").css("opacity", "0");
-                    $(".submit").css("transition", "1s");
-                })
+
+
+
+                
+
 
             })
         })
