@@ -209,11 +209,9 @@ fantasyApp.getPlayer = function () {
                                 $('ul').append(`<li></span>${rosterPlayer}</li>`);
                             }
 
+                            //player card transition
                             $('.playerCard').css("opacity", "1");
                             $('.playerCard').css("transition", "3s");
-
-                            $(".playerInfoPlayerRoster").css("opacity","1");
-                            $(".playerInfoPlayerRoster").css("transition", "0.5s");
 
                             //Search Search after Enter
                             $('input[class="searchPlayer"]').val('');
@@ -293,9 +291,23 @@ fantasyApp.getPlayer = function () {
                         alert('invalid player');
                     }
                 }
+
+                //SMOOTH SCROLL
+                $('html, body').animate({
+                    scrollTop: $("main").offset().top
+                }, 1000);
+
             })
 
             $('.submit').on('click', function () {
+
+
+                //SMOOTH SCROLL
+                $('html, body').animate({
+                    scrollTop: $("section").offset().top
+                }, 1000);
+
+
                 if (rosterPlayer === "") {
                     alert('no player entered');
                     return;
@@ -305,8 +317,6 @@ fantasyApp.getPlayer = function () {
                     alert('not enough players entered');
                     return;
                 }
-
-
 
                 $('.submit').css("display", "none");
                 $('.reset').css("width", "100%");
@@ -387,12 +397,6 @@ fantasyApp.getPlayer = function () {
                 $('.bench').append(`<li></span>${positionC[1].name}</li>`);
                 
 
-
-
-
-                
-
-
             })
         })
 
@@ -401,8 +405,18 @@ fantasyApp.getPlayer = function () {
 
 fantasyApp.resetButton = () => {
     $('.reset').on('click', function() {
+
         $('.searchPlayer').val("");
-        location.reload();
+
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1000);
+
+        let reset = setTimeout(() => {
+            location.reload();
+        }, 1000);
+
+        reset();
     })
 }
 

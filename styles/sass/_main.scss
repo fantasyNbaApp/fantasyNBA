@@ -1,6 +1,10 @@
 header {
     background-color: $secondaryColor;
-    padding: 1% 0;
+    padding: 5% 0 0 0;
+}
+
+.shortText {
+    display: none;
 }
 
 body {
@@ -8,7 +12,7 @@ body {
 }
 
 .nbaLogo {
-    width: 7%;
+    width: 10%;
     margin: 0 10px;
     display: flex;
     align-items: center;
@@ -16,13 +20,34 @@ body {
 
 .appTitle{
     width: 10%;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin: 0 10px;
+    // display: flex;
 }
 
 .titleContainer{
     display: flex;
     justify-content: center;
+}
+
+.instructions {
+    margin: 80px 0 0 0;
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        margin: 2%;
+    }
+
+    p {
+        font-size: 1 rem;
+        text-align: center;
+        margin: 1%;
+    }
+}
+
+main {
+    padding-top: 30px;
 }
 
 
@@ -42,14 +67,17 @@ input:hover {
 }
 
 
+
 form {
-    margin: 3% 0 2% 0;
+    margin: 2% 0 2% 0;
     text-align: center;
 }
 
 .PlayerCardPlayerRoster {
     display: flex;
     justify-content: space-between;
+    margin-top: 6%;
+    margin-bottom: 7%;
 }
 
 
@@ -114,7 +142,7 @@ form {
 }
 
 .playerIMG {
-    width: 20%;
+    width: 35%;
     img{
         border: 5px solid $primaryColor;
         border-radius: 20px;
@@ -153,13 +181,23 @@ form {
 .playerRoster h2 {
     text-align: center;
     text-transform: uppercase;
-    font-size: 2em;
+    font-size: 2rem;
 }
 
-.playerGenInfo,
-.positionClasses {
+.playerGenInfo {
     display: flex;
     flex-direction: row;
+}
+
+.positionClasses {
+    display: flex;
+    flex-direction: column;
+}
+
+.guards,
+.forwards {
+    display: flex;
+    justify-content: space-evenly
 }
 
 .playerTeamContainer, 
@@ -196,7 +234,7 @@ form {
 .smallForward,
 .powerForward,
 .center {
-    width: 18%;
+    width: 30%;
     text-align: center;
     border: 5px solid $primaryColor;
     border-radius: 20px;
@@ -228,7 +266,7 @@ form {
 .startingLineUpTitle {
     text-align: center;
     text-transform: uppercase;
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 .lineUpContainer {
@@ -239,11 +277,9 @@ form {
 .starting,
 .bench {
     width: 48%;
-    margin: 2%;
     text-align: center;
     border: 5px solid $primaryColor;
     border-radius: 20px;
-    padding-bottom: 50px;
     margin: 1%;
     padding: 0.5%;
 
@@ -263,22 +299,140 @@ form {
     }
 }
 
-.instructions {
-    h2 {
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 2em;
-    }
-
-    p {
-        font-size: 1.2em;
-        text-align: center;
-    }
-}
-
 .weeklyCalc {
     text-align: center;
     h3 {
         padding-top: 2%;
+    }
+}
+
+
+footer {
+    background: $primaryColor;
+    color: $secondaryColor;
+    text-align: center;
+    padding: 1%;
+    p {
+        margin: 0;
+    }
+}
+
+
+
+
+//MEDIA QUERIES
+
+
+@media (max-width: 1100px){
+    .playerCard {
+        width: 55%;
+    }
+    .playerNameTitleContainer {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .wrapper {
+        width: 90%;
+    }
+
+    .playerNamePlayerIMG {
+        h3 {
+            display: none;
+        }
+        .playerIMG {
+            margin-top: 5%;
+            width: 50%;
+        }
+    }
+
+    .starting,
+    .bench {
+
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+        li {
+            font-size: 0.9rem;
+            width: 65%;
+            padding: 2%;
+            list-style: none;
+            text-align: center;
+            margin: 2% auto;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    }
+
+    .pointGuard, 
+    .shootingGuard,
+    .smallForward,
+    .powerForward,
+    .center {
+        width: 40%;
+    }
+}
+
+@media (max-width: 800px) {
+    .nbaLogo{
+        width: 15%;
+    }
+    .appTitle {
+        width: 15%;
+    }
+}
+
+@media (max-width: 500px) {
+    .nbaLogo{
+        width: 20%;
+    }
+    .appTitle {
+        width: 40%;
+        font-size: 1.2rem;
+    }
+
+
+    .PlayerCardPlayerRoster {
+        flex-direction: column;
+
+        .playerNameTitleContainer {
+            width: 100%;
+            margin-bottom: 3%;
+        }
+        .playerCard {
+            width: 100%;
+        }
+    }
+
+    .instructions {
+        margin: 50px 0 0 0;
+    }
+
+
+    .pointGuard, 
+    .shootingGuard,
+    .smallForward,
+    .powerForward,
+    .center {
+        li {
+            width: 95%;
+        }
+    }
+
+    .starting,
+    .bench {
+        li {
+            width: 90%;
+        }
+    }
+}
+
+
+
+@media (max-width: 320px) {
+    .appTitle {
+        width: 55%;
     }
 }
