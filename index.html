@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,8 @@
 
     <title>Fantasy Kings</title>
 </head>
+<div id="particles-js"></div>
+
 <body>
     <header>
         <div class="wrapper">
@@ -35,7 +38,6 @@
                 <p>Click "Form Team" when you are ready to see who you should start and bench.</p>
                 <p>Click "Reset Team"if you made a mistake in your roster.</p>
             </div>
-
         </div>
     </header>
 
@@ -46,7 +48,7 @@
                 <input class="searchPlayer" placeholder="Search NBA Player">
             </form>
         </div>
-        <div class="PlayerCardPlayerRoster wrapper" >
+        <div class="PlayerCardPlayerRoster wrapper">
             <div class="playerNameTitleContainer">
                 <h2>Your Roster</h2>
                 <ul class="rosterList"></ul>
@@ -55,32 +57,32 @@
                     <button class="reset">Reset Team</button>
                 </div>
             </div>
-        
+
             <div class="playerCard">
                 <div class="playerNamePlayerIMG">
                     <h3 class="playerName">Player Name</h3>
                     <div class="playerIMG"><img src="./assets/2820067.png" alt=""></div>
                 </div>
-        
+
                 <div class="playerGenInfo">
                     <div class="playerTeamContainer">
                         <h3>Team</h3>
                         <p class="playerTeam">TOR</p>
                     </div>
-        
+
                     <div class="playerPositionContainer">
                         <h3>Position</h3>
                         <p class="playerPosition">PG</p>
                     </div>
-        
+
                     <div class="playerHeightContainer">
                         <h3>Height </h3>
                         <p class="playerHeight">6-3</p>
                     </div>
                 </div>
-        
+
                 <div class="playerStats">
-        
+
                     <div class="playerStatsUpper">
                         <div class="playerPointsTotalContainer">
                             <div class="playerPointsContainer">
@@ -89,7 +91,7 @@
                             </div>
                             <!-- <h3>League PPG Avg: 10.0</h3> -->
                         </div>
-        
+
                         <div class="playerReboundTotalContainer">
                             <div class="playerReboundsContainer">
                                 <h3>RPG</h3>
@@ -97,7 +99,7 @@
                             </div>
                             <!-- <h3>League RPG Avg: 4.2</h3> -->
                         </div>
-        
+
                         <div class="playerAssistsTotalContainer">
                             <div class="playerAssistsContainer">
                                 <h3>ASG</h3>
@@ -106,7 +108,7 @@
                             <!-- <h3>League ASG Avg: 2.1</h3> -->
                         </div>
                     </div>
-        
+
                     <div class="playerStatsLower">
                         <div class="playerFreeThrowTotalContainer">
                             <div class="playerFreeThrowContainer">
@@ -115,7 +117,7 @@
                             </div>
                             <!-- <h3>League FT% Avg: 78.4%</h3> -->
                         </div>
-        
+
                         <div class="playerThreePointsTotalContainer">
                             <div class="threePointContainer">
                                 <h3>3PG</h3>
@@ -123,7 +125,7 @@
                             </div>
                             <!-- <h3>League 3PG Avg: 1.3</h3> -->
                         </div>
-        
+
                         <div class="playerFantasyPointsTotalContainer">
                             <h3>Projected Daily Fantasy Points</h3>
                             <p class="playerFantasyPoints">45</p>
@@ -159,21 +161,21 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="startingLineUp wrapper">
-            <h2 class = "startingLineUpTitle">Line Up</h2>
+            <h2 class="startingLineUpTitle">Line Up</h2>
             <div class="lineUpContainer">
-    
+
                 <div class="starting">
                     <h2>Starters</h2>
                 </div>
-        
+
                 <div class="bench">
                     <h2>Bench</h2>
                 </div>
             </div>
         </div>
-    
+
         <div class="weeklyCalc">
             <h3></h3>
         </div>
@@ -184,9 +186,13 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    
+
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+
     <script src="script.js"></script>
 
 
 </body>
+
 </html>

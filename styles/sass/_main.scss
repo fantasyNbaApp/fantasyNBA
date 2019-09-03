@@ -1,8 +1,15 @@
 header {
-    background-color: $secondaryColor;
     padding: 5% 0 0 0;
 }
 
+#particles-js {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -10;
+    top: 0;
+    left: 0;
+}
 
 body {
     background-color: $secondaryColor;
@@ -148,6 +155,7 @@ form {
 }
 
 .playerCard {
+    background: $secondaryColor;
     border: 5px solid $primaryColor;
     border-radius: 20px;
     width: 70%;
@@ -233,6 +241,7 @@ form {
 .smallForward,
 .powerForward,
 .center {
+    background: $secondaryColor;
     width: 30%;
     text-align: center;
     border: 5px solid $primaryColor;
@@ -275,6 +284,7 @@ form {
 
 .starting,
 .bench {
+    background: $secondaryColor;
     width: 48%;
     text-align: center;
     border: 5px solid $primaryColor;
