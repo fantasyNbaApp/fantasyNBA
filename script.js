@@ -170,7 +170,17 @@ fantasyApp.getPlayer = function () {
 
                 //Error Handling, only allow maximum 12 players to be submitted due to Yahoo Fantasy Fulls
                 if (rosterCount > 11) {
-                    alert("SEE YA L8R! YOU HAVE TOO MANY PLAYasS");
+
+                    Swal.fire({
+                        type: 'error',
+                        title: '📣 Too many on your roster! 📣',
+                        text: 'You don\'t have the cap space for that!',
+                        animation: false,
+                        customClass: {
+                            popup: 'animated tada',
+                        }
+                    })
+
                     e.preventDefault();
                 }
 
@@ -197,7 +207,17 @@ fantasyApp.getPlayer = function () {
                                 let playerName = $(playerListItems[j]).text();
 
                                 if (playerName === rosterPlayer) {
-                                    alert('Player Already added')
+
+                                    Swal.fire({
+                                        type: 'error',
+                                        title: 'Timeout!',
+                                        text: 'That player is already on your roster!',
+                                        animation: false,
+                                        customClass: {
+                                            popup: 'animated tada',
+                                        }
+                                    });
+
                                     hasPlayerName = true;
                                     return false
 
@@ -288,7 +308,16 @@ fantasyApp.getPlayer = function () {
                     }
                     // if player does not exist then alert 
                     if (!foundPlayer) {
-                        alert('invalid player');
+
+                        Swal.fire({
+                            type: 'error',
+                            title: "Invalid Player!",
+                            animation: false,
+                            customClass: {
+                                popup: 'animated bounce',
+                            }
+                        })
+
                     }
                 }
 
@@ -309,12 +338,31 @@ fantasyApp.getPlayer = function () {
 
 
                 if (rosterPlayer === "") {
-                    alert('no player entered');
+
+                    Swal.fire({
+                        type: 'error',
+                        title: 'No Player Entered!',
+                        animation: false,
+                        customClass: {
+                            popup: 'animated bounce',
+                        }
+                    })
+
                     return;
                 }
 
                 else if (fantasyPlayerList.length<12){
-                    alert('not enough players entered');
+
+                    Swal.fire({
+                        type: 'error',
+                        title: "Not Enough Players!",
+                        text: 'How do you expect to win?',
+                        animation: false,
+                        customClass: {
+                            popup: 'animated bounce',
+                        }
+                    })
+
                     return;
                 }
 

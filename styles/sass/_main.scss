@@ -3,9 +3,6 @@ header {
     padding: 5% 0 0 0;
 }
 
-.shortText {
-    display: none;
-}
 
 body {
     background-color: $secondaryColor;
@@ -105,7 +102,7 @@ form {
         width: 40%;
         text-align: center;
         padding: 2%;
-        border: 1px solid black;
+        border: 1px solid #00538C;
         border-radius: 5px;
         margin: 2% 0;
         justify-content: center;
@@ -254,7 +251,7 @@ form {
         list-style: none;
         text-align: center;
         margin: 4% auto;
-        border: 1px solid black;
+        border: 1px solid #00538C;
         border-radius: 5px;
     }
 }
@@ -294,7 +291,7 @@ form {
         list-style: none;
         text-align: center;
         margin: 4% auto;
-        border: 1px solid black;
+        border: 1px solid #00538C;
         border-radius: 5px;
     }
 }
@@ -304,6 +301,7 @@ form {
     h3 {
         padding-top: 2%;
     }
+    margin-bottom: 15%;
 }
 
 
@@ -314,6 +312,7 @@ footer {
     padding: 1%;
     p {
         margin: 0;
+        color: $secondaryColor;
     }
 }
 
@@ -335,6 +334,10 @@ footer {
 @media (max-width: 1000px) {
     .wrapper {
         width: 90%;
+    }
+
+    .instructions {
+        margin: 50px 0 0 0;
     }
 
     .playerNamePlayerIMG {
@@ -361,7 +364,7 @@ footer {
             list-style: none;
             text-align: center;
             margin: 2% auto;
-            border: 1px solid black;
+            border: 1px solid #00538C;
             border-radius: 5px;
         }
     }

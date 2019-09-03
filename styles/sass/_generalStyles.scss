@@ -2,6 +2,7 @@ $headingFont: 'Anton', sans-serif, Helvetica;
 $primaryColor: #05558F;
 $secondaryColor: #DDE0E0;
 
+
 html {
     //font-size set to 22.5px for accessibility
     font-size: 125%;
@@ -22,6 +23,13 @@ h3 {
 
 p {
     margin-bottom: 3%;
+    font-family: Helvetica, sans-serif;
+    color: #404040;
+}
+
+li {
+    font-family: Helvetica, sans-serif;
+    color: #00538C;
 }
 
 
