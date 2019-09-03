@@ -159,6 +159,8 @@ form {
 }
 
 
+
+
 ////////////////////////////////////////////
 
 
@@ -304,6 +306,10 @@ form {
     margin-bottom: 15%;
 }
 
+.playerNameTitleContainer {
+    opacity: 0;
+}
+
 
 footer {
     background: $primaryColor;
@@ -439,3 +445,4 @@ footer {
         width: 55%;
     }
 }
+

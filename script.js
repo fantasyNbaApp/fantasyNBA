@@ -229,6 +229,10 @@ fantasyApp.getPlayer = function () {
                                 $('ul').append(`<li></span>${rosterPlayer}</li>`);
                             }
 
+                            //roster transition
+                            $('.playerNameTitleContainer').css("opacity" , "1");
+                            $('.playerNameTitleContainer').css("transition" , "3s");
+
                             //player card transition
                             $('.playerCard').css("opacity", "1");
                             $('.playerCard').css("transition", "3s");

@@ -645,6 +645,10 @@ form {
   padding-top: 2%;
 }
 
+.playerNameTitleContainer {
+  opacity: 0;
+}
+
 footer {
   background: #05558F;
   color: #DDE0E0;
