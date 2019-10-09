@@ -55,12 +55,9 @@ fantasyApp.getPlayerStats = function () {
             useCache: false
         }
     }).then((res) => {
-        console.log(res);
         for (let i = 0; i < res.FantasyBasketballNerd.Player.length; i++) {
             playerStats[i] = res.FantasyBasketballNerd.Player[i];
         }
-        // console.log(playerStats);
-
     })
 }
 
@@ -78,11 +75,9 @@ fantasyApp.getPlayerInfo = function () {
             useCache: false
         }
     }).then((res) => {
-        console.log(res);
         for (let i = 0; i < res.FantasyBasketballNerd.Player.length; i++) {
             playerList[i] = res.FantasyBasketballNerd.Player[i];
         }
-        // console.log(playerList);
     })
 }
 
